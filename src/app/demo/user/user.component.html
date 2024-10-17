@@ -1,5 +1,5 @@
 <!-- template driven form -->
-<div class="form-container">
+<!-- <div class="form-container">
     <p>Template-Driven</p>
     <form #userForm="ngForm">
         <label for="name">Name :-</label>
@@ -8,4 +8,45 @@
         <input type="email" name="email" id="email" ngModel>
         <button type="submit" (click)="onSubmit(userForm)">Submit</button>
     </form>
-</div>
+</div> -->
+
+<p>{{ this.data }}</p>
+<p>{{ this.users }}</p>
+
+<h2>Users</h2>
+<ul>
+    <li *ngFor="let user of users">{{users}}</li>
+</ul>
+
+<h2>From json database</h2>
+<ul>
+    <li *ngFor="let users of userData"><strong>{{users.name}} - {{ users.email }}</strong></li>
+    <li *ngFor="let posts of postData"><strong>{{posts.title}} - {{ posts.content }}</strong></li>
+</ul>
+
+<h2>From API</h2>
+<ul>
+    <li *ngIf="apiData"><strong>ID :- </strong>{{apiData.data.id}}</li>
+    <li *ngIf="apiData"><strong>Email :- </strong>{{apiData.data.email}}</li>
+    <li *ngIf="apiData"><strong>First Name :- </strong>{{apiData.data.first_name}}</li>
+    <li *ngIf="apiData"><strong>Last Name :- </strong>{{apiData.data.last_name}}</li>
+    <li *ngIf="apiData"><strong>Avatar Name :- </strong><img [src]="apiData.data.avatar" alt=""></li>
+</ul>
+
+<div>
+    <h2>Add New User</h2>
+    <form (ngSubmit)="addUser()">
+      <label>Name:</label>
+      <input type="text" [(ngModel)]="newUser.name" name="name" required />
+  
+      <label>Username:</label>
+      <input type="text" [(ngModel)]="newUser.job" name="job" required />
+
+      <button type="submit">Add User</button>
+    </form>
+  </div>
+
+<ul>
+    <li *ngIf="newUserData">{{newUserData.name}}</li>
+    <li *ngIf="newUserData">{{newUserData.job}}</li>
+</ul>

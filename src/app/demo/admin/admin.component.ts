@@ -1,14 +1,12 @@
-import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { subscribe } from 'diagnostics_channel';
-
 @Component({
   selector: 'app-admin',
   standalone: true,
-  imports: [ReactiveFormsModule,CommonModule,HttpClientModule],   
+  imports: [ReactiveFormsModule,CommonModule],
   templateUrl: './admin.component.html',
   styleUrl: './admin.component.scss'
 })
